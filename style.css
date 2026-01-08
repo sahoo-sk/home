@@ -26,6 +26,7 @@ nav { height: 70px; display: flex; justify-content: space-between; align-items: 
 .nav-links a:hover { color: var(--primary-color); }
 .lets-talk { font-weight: bold; color: var(--primary-color); }
 
+
 /* --- 3. LOGO STYLES --- */
 .logo-container { display: flex; align-items: center; }
 .logo-text { font-size: 2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -87,7 +88,7 @@ nav { height: 70px; display: flex; justify-content: space-between; align-items: 
 
 .fa-brands {color: white; background-color: var(--primary-gradient);}
 
-
+.standard-text-input-field-element:focus, .multiline-text-area-input-element:focus {outline: none;background: white;border-color: #a855f7;box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.1); }
 
 
 
@@ -128,11 +129,9 @@ nav { height: 70px; display: flex; justify-content: space-between; align-items: 
 .s-bold { font-weight: 800; }
 
 .nav-links { display: flex; gap: 2rem; }
-.nav-links a { font-weight: 600; color: var(--accent-color); transition: var(--transition); }
-.nav-links a:hover { color: var(--primary-color); }
+.nav-links a { font-weight: 300; color: var(--accent-color); transition: var(--transition); padding: 5px 10px; border-radius: 30px;}
+.nav-links a:hover { color: #9333ea; }
 
-.lets-talk { padding: 8px 25px; font-weight: 600; border-radius: 50px; border: 2px solid transparent; background-image: linear-gradient(white, white), var(--primary-gradient); background-origin: border-box; background-clip: padding-box, border-box; color: #8b5cf6; transition: var(--transition); }
-.lets-talk:hover { background-image: var(--primary-gradient); color: white; box-shadow: 0 10px 20px rgba(168, 85, 247, 0.3); }
 /* --- 3. HERO SECTION --- */
 .creative-hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding-top: 70px; }
 .hero-container { display: flex; align-items: center; justify-content: space-between; gap: 2rem; width: 100%; }
@@ -143,7 +142,7 @@ nav { height: 70px; display: flex; justify-content: space-between; align-items: 
 
 .btn, .general-action-button { padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; cursor: pointer; transition: var(--transition); }
 .button-style-gradient-primary { background: var(--primary-gradient); color: white; border: none; }
-.btn-outline { border: 2px solid #9333ea; color: var(--primary-color); }
+.btn-outline { border: 2px solid #9333ea; color: #9333ea; }
 
 .hero-visual { flex: 1; position: relative; height: 400px; }
 .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.5); padding: 2rem; border-radius: 20px; width: 260px; position: absolute; }
@@ -151,7 +150,7 @@ nav { height: 70px; display: flex; justify-content: space-between; align-items: 
 .glass-card:first-child { left: 10%; bottom: 20%; opacity: 0.8; }
 .icon-box { font-size: 2.5rem; }
 
-.shape { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.5; }
+.shape { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.5; z-index: -1;}
 .shape-1 { width: 400px; height: 400px; background: #bfdbfe; top: -100px; left: -100px; }
 .shape-2 { width: 300px; height: 300px; background: #e9d5ff; bottom: -50px; right: -50px; }
 
@@ -177,7 +176,7 @@ nav { height: 70px; display: flex; justify-content: space-between; align-items: 
 .icon-variant-purple { background: #8b5cf6; }
 
 /* --- 5. ABOUT SECTION --- */
-.company-about-us-section { padding: 6rem 0; background: var(--bg-off-white); }
+.company-about-us-section { padding: 6rem 0; background: #eef0f5; }
 .about-section-flex-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
 .about-heading { font-size: 3rem; margin-bottom: 1.5rem; }
 .about-paragraph { color: var(--text-gray); margin-bottom: 1rem; }
@@ -196,7 +195,7 @@ nav { height: 70px; display: flex; justify-content: space-between; align-items: 
 .form-input-fields-grid-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
 .form-input-field-group-wrapper label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
 .standard-text-input-field-element, .multiline-text-area-input-element {
-    width: 100%; padding: 1rem; background: var(--input-bg); border: 1px solid transparent; border-radius: 12px; transition: var(--transition);
+    width: 100%; padding: 1rem; background: #fcfcfc; border: 1px solid transparent; border-radius: 12px; transition: var(--transition);
 }
 .multiline-text-area-input-element { height: 150px; resize: none; }
 
@@ -222,10 +221,10 @@ nav { height: 70px; display: flex; justify-content: space-between; align-items: 
 @media (max-width: 900px) {
     .hero-text-content h1 { font-size: 2.5rem; }
     .hero-container { flex-direction: column; text-align: center; }
-    .hero-visual { height: auto; /* Allow container to grow with content */ display: flex; flex-direction: column; gap: 1.5rem; align-items: center; }
+    .hero-visual { height: auto; display: flex; flex-direction: column; gap: 1.5rem; align-items: center; }
     .btn-group, .social-media-profile-links-container { justify-content: center; }
     .form-input-fields-grid-layout { grid-template-columns: 1fr; }
-    .glass-card { position: relative; /* Remove absolute floating */ top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important; transform: none !important; width: 100%; max-width: 320px; }
+    .glass-card { position: relative;  top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important; transform: none !important; width: 100%; max-width: 320px; }
     .creative-hero { padding: 10px; margin-top: 50px;}
     .low-margin {padding-top: 50px; padding-bottom: 50px;}
 }
@@ -286,3 +285,6 @@ h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
 .footer-navigation-column-list-wrapper h4 { margin-bottom: 0.75rem; font-size: 1rem; color: var(--text-dark); font-weight: 700;}
 .footer-navigation-column-list-wrapper ul li a { color: var(--text-gray); font-size: 0.9rem; transition: var(--transition);}
 .footer-navigation-column-list-wrapper ul li a:hover { color: #8b5cf6; padding-left: 5px;}
+
+.lets-talk { padding: 8px 25px; font-weight: 600; border-radius: 50px; border: 2px solid transparent; background-image: linear-gradient(white, white), var(--primary-gradient); background-origin: border-box; background-clip: padding-box, border-box; color: #8b5cf6; transition: var(--transition); }
+.lets-talk:hover { color: white; box-shadow: 0 10px 20px rgba(168, 85, 247, 0.3); }
