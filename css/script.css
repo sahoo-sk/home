@@ -1,0 +1,132 @@
+/* --- SCRIPT PAGE STYLES --- */
+
+.script-wrapper {
+    max-width: 1000px; /* Wider than articles for code readability */
+    margin: 0 auto;
+    padding: 120px 20px 60px 20px;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+.script-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.8);
+}
+
+/* Header Section */
+.script-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.lang-badge {
+    background: #e0f2fe;
+    color: #0284c7;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.script-info h1 {
+    font-size: 2.2rem;
+    color: var(--text-dark);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    text-transform: capitalize;
+}
+
+.script-info p { color: var(--text-gray); }
+
+/* Usage / Terminal Box */
+.usage-section h3, .code-header h3 {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.terminal-box {
+    background: #1e1e1e;
+    border-radius: 8px;
+    padding: 0;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.terminal-header-dots {
+    background: #2d2d2d;
+    padding: 10px 15px;
+    display: flex;
+    gap: 6px;
+}
+
+.usage-section code {
+    display: block;
+    padding: 15px;
+    color: #a5b4fc; /* Light Indigo */
+    font-family: 'Fira Code', monospace;
+}
+
+/* Code Viewer */
+.code-section {
+    position: relative;
+}
+
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.copy-btn {
+    background: #f3f4f6;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    transition: all 0.2s;
+    font-family: 'Inter', sans-serif;
+}
+
+.copy-btn:hover {
+    background: green;
+    color: white;
+}
+
+/* Override Highlight.js Pre Styling */
+.code-section pre {
+    margin: 0;
+    border-radius: 12px;
+    background: #23241f; /* Monokai bg */
+    max-height: 600px; /* Scrollable if too long */
+    overflow: auto;
+}
+
+.code-section pre code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .script-header { flex-direction: column; }
+    .script-card { padding: 1.5rem; }
+}
