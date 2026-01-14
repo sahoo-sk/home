@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script Viewer - Sk. Sahoo</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/script.css">
+    <link rel="stylesheet" href="css/nav.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai-sublime.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo-container">
+                    <span class="logo-text s-thin">Sk</span><span class="logo-text s-bold">S</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="scripts.html"><i class="fa-solid fa-code"></i> Back to Scripts</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="script-wrapper">
+        
+        <div class="shape shape-1" style="top: 50px; left: -100px; opacity: 0.1; background: #bfdbfe;"></div>
+        <div class="shape shape-2" style="bottom: 50px; right: -100px; opacity: 0.1;"></div>
+
+        <div class="script-card">
+            <div class="script-header">
+                <div class="script-info">
+                    <span class="lang-badge"><i class="fa-brands fa-python"></i> Python 3</span>
+                    <h1 id="script-title">Loading Script...</h1>
+                    <p id="script-desc">Loading description...</p>
+                </div>
+                <div class="script-actions">
+                    <a href="#" id="download-btn" class="btn button-style-gradient-primary" download>
+                        Download .py <i class="fa-solid fa-download"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="usage-section">
+                <h3><i class="fa-solid fa-terminal"></i> Usage</h3>
+                <div class="terminal-box">
+                    <div class="terminal-header-dots">
+                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                    </div>
+                    <code id="usage-command">$ python3 script_name.py</code>
+                </div>
+            </div>
+
+            <div class="code-section">
+                <div class="code-header">
+                    <h3>Source Code</h3>
+                    <button class="copy-btn" onclick="copyCode()">
+                        <i class="fa-regular fa-copy"></i> Copy
+                    </button>
+                </div>
+                <pre><code id="code-content" class="language-python"># Loading code...</code></pre>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const file = urlParams.get('file'); // e.g. script.html?file=port-scanner.py
+            
+            // SIMULATED DATA (In a real app, you might fetch a JSON sidecar for title/desc)
+            // For now, we just format the filename
+            if(file) {
+                document.getElementById('script-title').innerText = file.replace(/-/g, ' ').replace('.py', '');
+                document.getElementById('script-desc').innerText = "A powerful automation script for security testing.";
+                document.getElementById('usage-command').innerText = `$ python3 ${file} -h`;
+                document.getElementById('download-btn').href = `scripts/${file}`;
+                
+                // Fetch the actual code
+                fetch(`scripts/${file}`)
+                    .then(r => r.text())
+                    .then(code => {
+                        const codeBlock = document.getElementById('code-content');
+                        codeBlock.textContent = code;
+                        hljs.highlightElement(codeBlock);
+                    });
+            }
+        });
+
+        function copyCode() {
+            const code = document.getElementById('code-content').innerText;
+            navigator.clipboard.writeText(code);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+            setTimeout(() => { btn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy'; }, 2000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+/* --- LAUNCH / LOADING PAGE STYLES --- */
+
+/* 1. Layout */
+body {
+    overflow: hidden;
+}
+
+.launch-wrapper {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-light);
+    padding: 20px;
+}
+
+.launch-content {
+    max-width: 600px;
+    width: 100%;
+    text-align: left; /* Different alignment than the centered gear version */
+}
+
+/* 2. Status Badge */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #f1f5f9;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-gray);
+    margin-bottom: 1.5rem;
+    border: 1px solid #e2e8f0;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #10b981; /* Green for 'active' */
+    border-radius: 50%;
+    box-shadow: 0 0 0 rgba(16, 185, 129, 0.4);
+    animation: pulse-green 2s infinite;
+}
+
+/* 3. Typography */
+.launch-title {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.launch-desc {
+    font-size: 1.15rem;
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    max-width: 90%;
+}
+
+/* 4. The Progress Bar */
+.progress-container {
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--primary-gradient);
+    border-radius: 10px;
+    animation: load-progress 2s ease-out forwards;
+}
+
+/* The soft glow moving across the bar */
+.progress-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+    transform: translateX(-100%);
+    animation: shimmer 2s infinite 2s; /* Starts after bar loads */
+}
+
+/* 5. Stats Text */
+.loading-stats {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    margin-bottom: 3rem;
+}
+
+/* 6. Animations */
+@keyframes pulse-green {
+    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+@keyframes load-progress {
+    0% { width: 0%; }
+    50% { width: 50%; }
+    100% { width: 85%; } /* Stops at 85% to show work in progress */
+}
+
+@keyframes shimmer {
+    100% { transform: translateX(100%); }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+    .launch-title { font-size: 2.5rem; }
+    .launch-content { text-align: center; }
+    .status-badge { margin: 0 auto 1.5rem auto; }
+    .action-area { display: flex; justify-content: center; }
+}
