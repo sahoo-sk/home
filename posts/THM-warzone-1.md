@@ -1,8 +1,8 @@
 # THM Lab: Warzone 1
-**Date:** Jan 27, 2026
+**Date:** Jan 29, 2026
 
 ## Overview
-It is a defensive, network-focused challenge on TryHackMe designed to simulate a real-world Security Operations Center (SOC) investigation.
+TryHackMe Warzone 1 (https://tryhackme.com/room/warzoneone) is a defensive, network-focused challenge on TryHackMe designed to simulate a real-world Security Operations Center (SOC) investigation.
 
 ## Tools used in this Lab
 ### Brim (Zui)
@@ -129,4 +129,5 @@ Do the same as question number 10 (Follow the TCP Stream)
 ![Alt text](rec/writeups/warzone-1/Screenshot-11.png)
 
 **Answer 11**: `C:\ProgramData\Local\Google\rebol-view-278-3-1.exe,C:\ProgramData\Local\Google\exemple.rb`
+
 
